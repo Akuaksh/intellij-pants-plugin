@@ -166,9 +166,12 @@ jar_library(
       [ _jdk_jar(path) for path in _jdk_classpath() ]
 )
 
+def _python_plugin_jar_name():
+    return 'python.jar' if os.environ.get('IJ_ULTIMATE') else 'python-community.jar'
+
 jar_library(
     name = 'python-plugin',
-    jars = [ _intellij_plugin_jar(path) for path in _find_jars_for_plugin('python', 'python-community.jar') ]
+    jars = [ _intellij_plugin_jar(path) for path in _find_jars_for_plugin('python', _python_plugin_jar_name()) ]
 )
 
 jar_library(
