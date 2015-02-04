@@ -4,15 +4,14 @@ set -e
 
 CWD=$(pwd)
 
+# we will use Community ids to download plugins.
 SCALA_PLUGIN_ID="org.intellij.scala"
 PYTHON_PLUGIN_ID="PythonCore"
-IJ_BUILD="IC-${IJ_VERSION}"
 FULL_IJ_BUILD_NUMBER="IC-${IJ_BUILD_NUMBER}"
 
+IJ_BUILD="IC-${IJ_VERSION}"
 if [[ $IJ_ULTIMATE == "true" ]]; then
-  PYTHON_PLUGIN_ID="Pythonid"
   IJ_BUILD="IU-${IJ_VERSION}"
-  FULL_IJ_BUILD_NUMBER="IU-${IJ_BUILD_NUMBER}"
 fi
 
 mkdir -p .cache/intellij
